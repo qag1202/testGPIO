@@ -4,7 +4,7 @@ import websocket
 
 MQ_PIN = 19
 
-socket = websocket.WebSocket
+socket = websocket.WebSocket()
 socket.connect("loaclhost:3000")
 
 GPIO.setmode(GPIO.BCM)
@@ -15,7 +15,7 @@ def read():
         while True:
             alcohol = GPIO.input(MQ_PIN)
             print("nong do con",alcohol)
-            message=("nong do con", alcohol)
+            message="nong do con", alcohol
             socket.send (str(message))
             time.sleep = 1
     except KeyboardInterrupt:
